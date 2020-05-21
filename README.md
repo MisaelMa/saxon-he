@@ -1,2 +1,2 @@
 # saxon-he
-sudo chmod 777 saxon-he.sh
+sudo chmod 777 saxon.sh
