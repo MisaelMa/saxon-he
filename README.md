@@ -1,17 +1,25 @@
 # saxon-he
-# sudo chmod 777 saxon.sh
-# sudo ./saxon.sh
 
-saxon
+saxon install
 
-No source file name
-Saxon-HE 9.9.1.6J from Saxonica
-Usage: see http://www.saxonica.com/documentation/index.html#!using-xsl/commandline
-Format: net.sf.saxon.Transform options params
-Options available: -? -a -catalog -config -cr -diag -dtd -ea -expand -explain -export -ext -im -init -it -jit -l -lib -license -m -nogo -now -o -opt -or -outval -p -quit -r -relocate -repeat -s -sa -scmin -strip -t -T -target -TB -threads -TJ -Tlevel -Tout -TP -traceout -tree -u -val -versionmsg -warnings -x -xi -xmlversion -xsd -xsdversion -xsiloc -xsl -y
-Use -XYZ:? for details of option XYZ
-Params: 
-  param=value           Set stylesheet string parameter
-  +param=filename       Set stylesheet document parameter
-  ?param=expression     Set stylesheet parameter using XPath
-  !param=value          Set serialization parameter
+  ```sh
+    # sudo chmod 777 saxon-he-xVersion-install.sh
+    # sudo ./saxon-he-xVersion-install.sh
+  ```
+
+saxon uninstall
+
+  ```sh
+    # sudo chmod 777 saxon-he-xVersion-remove.sh
+    # sudo ./saxon-he-xVersion-remove.sh
+  ```
+
+No source file name Saxon-HE 9.9.1.6J from Saxonica Usage:
+see http://www.saxonica.com/documentation/index.html#!using-xsl/commandline
+Format: net.sf.saxon.Transform options params Options available: -? -a -catalog -config -cr -diag -dtd -ea -expand
+-explain -export -ext -im -init -it -jit -l -lib -license -m -nogo -now -o -opt -or -outval -p -quit -r -relocate
+-repeat -s -sa -scmin -strip -t -T -target -TB -threads -TJ -Tlevel -Tout -TP -traceout -tree -u -val -versionmsg
+-warnings -x -xi -xmlversion -xsd -xsdversion -xsiloc -xsl -y Use -XYZ:? for details of option XYZ Params:
+param=value Set stylesheet string parameter +param=filename Set stylesheet document parameter ?param=expression Set
+stylesheet parameter using XPath
+!param=value Set serialization parameter
