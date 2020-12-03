@@ -1,5 +1,11 @@
 # saxon-he
 
+dependences
+  ```sh
+    sudo apt install unzip
+    sudo pacman -S unzip
+  ```
+
 saxon install
 
   ```sh
