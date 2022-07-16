@@ -4,4 +4,5 @@
 *.zip
 *.1
 *.jar
+.idea
 saxon-x*

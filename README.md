@@ -2,6 +2,8 @@
 
 dependences
   ```sh
+    wget
+
     sudo apt install unzip
     sudo pacman -S unzip
   ```
@@ -9,15 +11,15 @@ dependences
 saxon install
 
   ```sh
-    # sudo chmod 777 saxon-he-xVersion-install.sh
-    # sudo ./saxon-he-xVersion-install.sh
+    sudo  chmod a+x ./saxon-he.sh
+    ./saxon-he.sh
   ```
 
 saxon uninstall
 
   ```sh
-    # sudo chmod 777 saxon-he-xVersion-remove.sh
-    # sudo ./saxon-he-xVersion-remove.sh
+    sudo chmod a+x ./uninstall.sh
+     ./uninstall.sh
   ```
 
 No source file name Saxon-HE 9.9.1.6J from Saxonica Usage:
