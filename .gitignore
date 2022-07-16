@@ -1,0 +1,7 @@
+/doc
+/lib
+/notices
+*.zip
+*.1
+*.jar
+saxon-x*
