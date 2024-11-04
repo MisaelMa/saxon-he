@@ -3,9 +3,9 @@
 echo '🅦🅔🅛🅒🅞🅜🅔 🅣🅞 🅣🅗🅔 🅢🅐🅧🅞🅝 🅘🅝🅢🅣🅐🅛🅛🅐🅣🅘🅞🅝 🅜🅐🅝🅐🅖🅔🅡'
 echo ""
 options=(
+"12"
 "11"
 "10"
-"9.9"
 )
 PS3="select the version of saxon-he to install: "
 select major in "${options[@]}"
@@ -22,42 +22,43 @@ done
 pkgver=${minor}
 _pkgver=${pkgver//./-}
 pkgdesc="XSLT 2.0 / XPath 2.0 and 3.0 / XQuery 1.0 and 3.0 processor for Java - Home Edition"
-url="http://saxon.sourceforge.net"
+url="https://github.com/Saxonica/Saxon-HE"
 namefile="SaxonHE${_pkgver}J.zip"
-downloadlink="https://downloads.sourceforge.net/saxon/${namefile}"
+downloadlink="${url}/raw/refs/heads/main/${major}/Java/${namefile}"
 
 echo '🅳🅾🆆🅽🅻🅾🅰🅳🅸🅽🅶'
 wget ${downloadlink}
 
 echo '🅳🅴🅲🅾🅼🅿🆁🅴🆂🆂🅸🅽🅶'
-sudo unzip ${namefile}
+sudo unzip ${namefile} -d saxon
 
-echo '🅲🆁🅴🅰🆃🅸🅽🅶 🅵🅸🅻🅴 saxon-xquery.sh for Query'
+echo '🅲🆁🅴🅰🆃🅸🅽🅶 🅵🅸🅻🅴 query.sh for Query'
 echo "#!/bin/sh
 
-java -cp /usr/share/java/saxon/saxon-he-${pkgver}.jar net.sf.saxon.Query   "'"$@"'"
-" >saxon-xquery.sh
+java -cp /usr/share/java/saxon/${pkgver}/saxon-he-${pkgver}.jar net.sf.saxon.Query   "'"$@"'"
+" >query.sh
 
-echo '🅲🆁🅴🅰🆃🅸🅽🅶 🅵🅸🅻🅴 saxon-xslt.sh for Transform'
+echo '🅲🆁🅴🅰🆃🅸🅽🅶 🅵🅸🅻🅴 transform.sh for Transform'
 echo "#!/bin/sh
 
-java -cp /usr/share/java/saxon/saxon-he-${pkgver}.jar net.sf.saxon.Transform "'"$@"'"
-" >saxon-xslt.sh
+java -cp /usr/share/java/saxon/${pkgver}/saxon-he-${pkgver}.jar net.sf.saxon.Transform "'"$@"'"
+" >transform.sh
 
-echo "🅸🅽🆂🆃🅰🅻🅻 saxon-he-${pkgver}.jar"
-sudo install -Dm644 saxon-he-${pkgver}.jar /usr/share/java/saxon/saxon-he-${pkgver}.jar
+echo "🅸🅽🆂🆃🅰🅻🅻 saxon-he"
+sudo mkdir /usr/share/java/saxon
+sudo cp -r saxon /usr/share/java/saxon/${pkgver}
 
-echo '🅸🅽🆂🆃🅰🅻🅻 saxon-xslt.sh'
-sudo install -Dm755 saxon-xslt.sh /usr/bin/saxon-xslt
-echo '🅸🅽🆂🆃🅰🅻🅻 saxon-xquery.sh'
-sudo install -Dm755 saxon-xquery.sh /usr/bin/saxon-xquery
+echo '🅸🅽🆂🆃🅰🅻🅻 transform.sh'
+sudo install -Dm755 transform.sh /usr/bin/transform
+
+echo '🅸🅽🆂🆃🅰🅻🅻 query.sh'
+sudo install -Dm755 query.sh /usr/bin/query
 
 echo '🅻🅸🅽🅺 🆆🅸🆃🅷 🆂🅸🅼🅿🅻🅴🆁 🅽🅰🅼🅴 🅵🅾🆁 🅲🅾🅼🅿🅰🆃 🆆🅸🆃🅷 🅾🆃🅷🅴🆁🆂'
-echo "🅳🅸🆁🅴🅲🆃 🅰🅲🅲🅴🆂🆂 saxon-he-${pkgver}.jar"
-sudo ln -s /usr/share/java/saxon/saxon-he-${pkgver}.jar /usr/share/java/saxon/saxon.jar
 
-echo '🅳🅸🆁🅴🅲🆃 🅰🅲🅲🅴🆂🆂 saxon-xslt'
-sudo ln -s /usr/bin/saxon-xslt /usr/bin/saxon
+echo '🅳🅸🆁🅴🅲🆃 🅰🅲🅲🅴🆂🆂 saxon'
+sudo rm -f /usr/bin/saxon
+sudo ln -s /usr/bin/transform /usr/bin/saxon
 
 echo '██╗███╗   ██╗███████╗████████╗ █████╗ ██╗     ██╗     ███████╗██████╗
 ██║████╗  ██║██╔════╝╚══██╔══╝██╔══██╗██║     ██║     ██╔════╝██╔══██╗

@@ -3,9 +3,9 @@
 echo '🅦🅔🅛🅒🅞🅜🅔 🅣🅞 🅣🅗🅔 🅢🅐🅧🅞🅝 🅘🅝🅢🅣🅐🅛🅛🅐🅣🅘🅞🅝 🅜🅐🅝🅐🅖🅔🅡'
 echo ""
 options=(
+"12"
 "11"
 "10"
-"9.9"
 )
 PS3="select the version of saxon-he to uninstall: "
 select major in "${options[@]}"
@@ -30,14 +30,15 @@ echo '███████╗ █████╗ ██╗  ██╗ ███
 ███████║██║  ██║██╔╝ ██╗╚██████╔╝██║ ╚████║    ██║  ██║███████╗
 ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═╝  ╚═╝╚══════╝'
 
-echo "remove saxon-he-${pkgver}.jar"
-sudo rm /usr/share/java/saxon/saxon-he-${pkgver}.jar
-echo 'remove saxon-xslt.sh'
-sudo rm /usr/bin/saxon-xslt
-echo 'remove saxon-xquery.sh'
-sudo rm /usr/bin/saxon-xquery
-echo 'remove saxon.jar'
-sudo rm /usr/share/java/saxon/saxon.jar
+sudo rm -fr /usr/share/java/saxon/${pkgver}
+
+echo 'remove saxon query.sh'
+sudo rm -f /usr/bin/query
+
+echo 'remove saxon tranform.sh'
+sudo rm -f /usr/bin/transform
+
 echo 'rm saxon bin'
-sudo /usr/bin/saxon
+sudo rm -f /usr/bin/saxon
+
 echo 'saxon removido existosamente'
